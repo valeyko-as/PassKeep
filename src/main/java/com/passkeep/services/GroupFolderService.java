@@ -1,6 +1,6 @@
 package com.passkeep.services;
 
-import com.passkeep.data.GroupFolderEntity;
+import com.passkeep.data.GroupFolder;
 import com.passkeep.repositories.GroupFolderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service("GroupFolderService")
 @Transactional
-public class GroupFolderService implements FolderService<GroupFolderEntity> {
+public class GroupFolderService implements FolderService<GroupFolder> {
     private final GroupFolderRepository repository;
 
     @Autowired
@@ -19,18 +19,18 @@ public class GroupFolderService implements FolderService<GroupFolderEntity> {
     }
 
     @Override
-    public List<GroupFolderEntity> getAllByOwnerId(Integer ownerId) {
+    public List<GroupFolder> getAllByOwnerId(Integer ownerId) {
         return repository.findGroupFolders(ownerId);
     }
 
     @Override
-    public GroupFolderEntity getById(Integer id) {
+    public GroupFolder getById(Integer id) {
         return repository.findById(id).orElseThrow();
     }
 
     @Override
-    public GroupFolderEntity update(Integer id, GroupFolderEntity updatedFolder) {
-        GroupFolderEntity folder = repository.findById(id).orElse(null);
+    public GroupFolder update(Integer id, GroupFolder updatedFolder) {
+        GroupFolder folder = repository.findById(id).orElse(null);
         if (folder != null) {
             folder.setName(updatedFolder.getName());
             repository.saveAndFlush(folder);

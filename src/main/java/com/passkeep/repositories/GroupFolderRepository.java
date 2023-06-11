@@ -1,12 +1,12 @@
 package com.passkeep.repositories;
 
-import com.passkeep.data.GroupFolderEntity;
+import com.passkeep.data.GroupFolder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface GroupFolderRepository extends JpaRepository<GroupFolderEntity, Integer> {
-    @Query("select f from GroupFolderEntity f join f.group g where g.id = ?1")
-    List<GroupFolderEntity> findGroupFolders(Integer id);
+public interface GroupFolderRepository extends JpaRepository<GroupFolder, Integer> {
+    @Query("select f from GroupFolder f join f.group g where g.id = ?1")
+    List<GroupFolder> findGroupFolders(Integer id);
 }

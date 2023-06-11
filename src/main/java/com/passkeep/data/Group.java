@@ -1,6 +1,6 @@
 package com.passkeep.data;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "group", schema = "public", catalog = "PassKeep")
 @Data
-public class GroupEntity {
+public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Integer id;
@@ -17,13 +17,13 @@ public class GroupEntity {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "group_id")
-    List<GroupStructureEntity> groupStructure = new ArrayList<>();
+    List<GroupStructure> groupStructure = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "group_id")
-    List<GroupRoleEntity> roles = new ArrayList<>();
+    List<GroupRole> roles = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "group_id")
-    List<GroupFolderEntity> groupFolders = new ArrayList<>();
+    List<GroupFolder> groupFolders = new ArrayList<>();
 }

@@ -1,12 +1,12 @@
 package com.passkeep.data;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 @Entity
 @Table(name = "password", schema = "public", catalog = "PassKeep")
 @Data
-public class PasswordEntity {
+public class Password {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Integer id;

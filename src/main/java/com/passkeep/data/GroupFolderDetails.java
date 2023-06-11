@@ -1,12 +1,12 @@
 package com.passkeep.data;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 @Entity
 @Table(name = "group_folder_details", schema = "public", catalog = "PassKeep")
 @Data
-public class GroupFolderDetailsEntity {
+public class GroupFolderDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Integer id;
@@ -15,13 +15,13 @@ public class GroupFolderDetailsEntity {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "password_id")
-    private PasswordEntity password;
+    private Password password;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "group_folder_id")
-    private GroupFolderEntity groupFolder;
+    private GroupFolder groupFolder;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
-    private GroupRoleEntity role;
+    private GroupRole role;
 }

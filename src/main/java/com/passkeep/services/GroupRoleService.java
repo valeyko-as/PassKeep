@@ -1,6 +1,6 @@
 package com.passkeep.services;
 
-import com.passkeep.data.GroupRoleEntity;
+import com.passkeep.data.GroupRole;
 import com.passkeep.repositories.GroupRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,15 +18,15 @@ public class GroupRoleService {
         this.repository = repository;
     }
 
-    public List<GroupRoleEntity> getGroupRoles(Integer groupId) {
+    public List<GroupRole> getGroupRoles(Integer groupId) {
         return repository.getAllByGroupId(groupId);
     }
 
-    public GroupRoleEntity getUserRole(Integer userId) {
+    public GroupRole getUserRole(Integer userId) {
         return repository.getRoleByUserId(userId);
     }
 
-    public void add(GroupRoleEntity role) {
+    public void add(GroupRole role) {
         repository.save(role);
     }
 

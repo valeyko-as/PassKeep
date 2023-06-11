@@ -1,7 +1,7 @@
 package com.passkeep.repositories;
 
-import com.passkeep.data.PasswordEntity;
-import org.springframework.data.repository.CrudRepository;
+import com.passkeep.data.Password;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PasswordRepository extends CrudRepository<PasswordEntity, Integer> {
+public interface PasswordRepository extends JpaRepository<Password, Integer> {
 }

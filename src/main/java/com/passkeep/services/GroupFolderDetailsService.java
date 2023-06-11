@@ -1,6 +1,6 @@
 package com.passkeep.services;
 
-import com.passkeep.data.GroupFolderDetailsEntity;
+import com.passkeep.data.GroupFolderDetails;
 import com.passkeep.repositories.GroupFolderDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service("GroupFolderDetailsService")
 @Transactional
-public class GroupFolderDetailsService implements FolderDetailsService<GroupFolderDetailsEntity> {
+public class GroupFolderDetailsService implements FolderDetailsService<GroupFolderDetails> {
     private final GroupFolderDetailsRepository repository;
 
     @Autowired
@@ -19,21 +19,21 @@ public class GroupFolderDetailsService implements FolderDetailsService<GroupFold
     }
 
     @Override
-    public List<GroupFolderDetailsEntity> getByFolder(Integer folderId) {
+    public List<GroupFolderDetails> getByFolder(Integer folderId) {
         return repository.findAllByFolderId(folderId);
     }
 
     @Override
-    public GroupFolderDetailsEntity getByName(Integer folderId, String name) {
+    public GroupFolderDetails getByName(Integer folderId, String name) {
         return repository.findByName(folderId, name);
     }
 
-    public List<GroupFolderDetailsEntity> getByGroupRole(Integer id) {
+    public List<GroupFolderDetails> getByGroupRole(Integer id) {
         return repository.findAllByRoleId(id);
     }
 
     @Override
-    public void add(GroupFolderDetailsEntity groupFolderDetails) {
+    public void add(GroupFolderDetails groupFolderDetails) {
         repository.save(groupFolderDetails);
     }
 

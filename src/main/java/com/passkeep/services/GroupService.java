@@ -1,6 +1,6 @@
 package com.passkeep.services;
 
-import com.passkeep.data.GroupEntity;
+import com.passkeep.data.Group;
 import com.passkeep.repositories.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +18,11 @@ public class GroupService {
         this.repository = repository;
     }
 
-    public List<GroupEntity> findUserGroups(Integer id) {
+    public Group findUserGroups(Integer id) {
         return repository.findUserGroups(id);
     }
 
-    public GroupEntity add(GroupEntity group) {
+    public Group add(Group group) {
         return repository.save(group);
     }
 
