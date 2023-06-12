@@ -3,9 +3,11 @@ package com.passkeep.repositories;
 import com.passkeep.data.GroupFolderDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface GroupFolderDetailsRepository extends JpaRepository<GroupFolderDetails, Integer> {
     @Query("select fd from GroupFolderDetails fd join fd.groupFolder f where f.id = ?1")
     List<GroupFolderDetails> findAllByFolderId(Integer id);

@@ -3,9 +3,11 @@ package com.passkeep.repositories;
 import com.passkeep.data.GroupStructure;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface GroupStructureRepository extends JpaRepository<GroupStructure, Integer> {
     @Query("select gs from GroupStructure gs join gs.group g where g.name = ?1")
     List<GroupStructure> findAllByGroupName(String groupName);

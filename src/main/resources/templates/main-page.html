@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PassKeep</title>
+</head>
+<body>
+<h1>Passwords storages</h1>
+<div>
+    <table border="1">
+        <tr>
+            <th>Private folders</th>
+        </tr>
+        <tr th:each="privateFolder : ${privateFolders}" th:if="${privateFolders != null}">
+            <td colspan="1">
+                <a th:href="@{/main/private/{id}(id=${privateFolder.id})}">
+                    <button type="button" class="btn btn-link btn-block" style="width: 100%"
+                            th:text="${privateFolder.name}">Name
+                    </button>
+                </a>
+            </td>
+        <tr>
+            <td>
+                <a href="">
+                    <button type="button" class="btn btn-link" style="width: 100%"> Create folder</button>
+                </a>
+            </td>
+        </tr>
+        </tr>
+        <tr th:if="${privateFolders.size() == 0}">
+            <td colspan="1">No folders</td>
+        </tr>
+    </table>
+
+    <table border="1">
+        <tr>
+            <th>Group folders</th>
+        </tr>
+        <tr th:each="groupFolder : ${groupFolders}" th:if="${group != null}">
+            <td colspan="1">
+                <a th:href="@{/main/group/{id}(id=${groupFolder.getId()})}">
+                    <button type="button" class="btn btn-link btn-block" style="width: 100%"
+                            th:text="${groupFolder.name}">Name
+                    </button>
+                </a>
+            </td>
+        </tr>
+        <tr th:if="${group == null}">
+            <td colspan="1">No group</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="">
+                    <button type="button" class="btn btn-link" style="width: 100%"> Create folder</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

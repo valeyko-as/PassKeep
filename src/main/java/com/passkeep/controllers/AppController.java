@@ -39,21 +39,24 @@ public class AppController {
         User user = userService.getByLogin(userDetails.getUsername());
         List<PrivateFolder> privateFolders = privateFolderService.getAllByOwnerId(user.getId());
         Group group = groupService.findUserGroups(user.getId());
-        List<GroupFolder> groupFolders = groupFolderService.getAllByOwnerId(group.getId());
+        if (group != null) {
+            List<GroupFolder> groupFolders = groupFolderService.getAllByOwnerId(group.getId());
+            model.addAttribute("groupFolders", groupFolders);
+        }
         model.addAttribute("privateFolders", privateFolders);
         model.addAttribute("group", group);
-        model.addAttribute("groupFolders", groupFolders);
+
         return "main-page";
     }
 
-    @GetMapping("main/private/{id}")
+    @GetMapping("/main/private/{id}")
     public String privateFolderDetailsPage(@PathVariable("id") Integer id, Model model) {
         List<PrivateFolderDetails> folderDetails = privateFolderDetailsService.getByFolder(id);
         model.addAttribute("details", folderDetails);
         return "private-details-page";
     }
 
-    @GetMapping("main/private/password/{id}")
+    @GetMapping("/main/private/password/{id}")
     public String privatePasswordDetails(@PathVariable("id") Integer id, Model model) throws Exception {
         PrivateFolderDetails passwordDetails = privateFolderDetailsService.getById(id);
         Password password = passwordDetails.getPassword();
