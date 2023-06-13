@@ -1,7 +1,7 @@
 package com.passkeep.controllers;
 
-import com.passkeep.data.User;
-import com.passkeep.services.UserService;
+import com.passkeep.models.data.User;
+import com.passkeep.models.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

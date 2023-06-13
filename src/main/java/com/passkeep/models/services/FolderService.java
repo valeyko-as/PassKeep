@@ -1,4 +1,4 @@
-package com.passkeep.services;
+package com.passkeep.models.services;
 
 import java.util.List;
 

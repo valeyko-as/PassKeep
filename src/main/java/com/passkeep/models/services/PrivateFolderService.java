@@ -1,7 +1,7 @@
-package com.passkeep.services;
+package com.passkeep.models.services;
 
-import com.passkeep.data.PrivateFolder;
-import com.passkeep.repositories.PrivateFolderRepository;
+import com.passkeep.models.data.PrivateFolder;
+import com.passkeep.models.repositories.PrivateFolderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

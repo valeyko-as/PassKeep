@@ -1,6 +1,6 @@
 package com.passkeep.configs;
 
-import com.passkeep.services.UserService;
+import com.passkeep.models.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

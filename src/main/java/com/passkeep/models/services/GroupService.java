@@ -1,12 +1,10 @@
-package com.passkeep.services;
+package com.passkeep.models.services;
 
-import com.passkeep.data.Group;
-import com.passkeep.repositories.GroupRepository;
+import com.passkeep.models.data.Group;
+import com.passkeep.models.repositories.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service("GroupService")
 @Transactional

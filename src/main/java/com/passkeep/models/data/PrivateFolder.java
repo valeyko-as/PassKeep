@@ -1,4 +1,4 @@
-package com.passkeep.data;
+package com.passkeep.models.data;
 
 import javax.persistence.*;
 import lombok.Data;

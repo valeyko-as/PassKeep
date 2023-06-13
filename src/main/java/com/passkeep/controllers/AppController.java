@@ -1,9 +1,9 @@
 package com.passkeep.controllers;
 
 import com.passkeep.configs.PasswordEncryptor;
-import com.passkeep.data.*;
-import com.passkeep.repositories.PasswordRepository;
-import com.passkeep.services.*;
+import com.passkeep.models.data.*;
+import com.passkeep.models.services.*;
+import com.passkeep.models.repositories.PasswordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.management.relation.Role;
 import java.util.List;
 
 @Controller
@@ -26,13 +25,13 @@ public class AppController {
     @Autowired
     private GroupRoleService roleService;
     @Autowired
-    PrivateFolderService privateFolderService;
+    private PrivateFolderService privateFolderService;
     @Autowired
-    PrivateFolderDetailsService privateFolderDetailsService;
+    private PrivateFolderDetailsService privateFolderDetailsService;
     @Autowired
-    GroupFolderService groupFolderService;
+    private GroupFolderService groupFolderService;
     @Autowired
-    GroupFolderDetailsService groupFolderDetailsService;
+    private GroupFolderDetailsService groupFolderDetailsService;
 
     @GetMapping
     public String mainPage(@AuthenticationPrincipal UserDetails userDetails, Model model) {

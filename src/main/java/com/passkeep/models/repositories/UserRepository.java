@@ -1,6 +1,6 @@
-package com.passkeep.repositories;
+package com.passkeep.models.repositories;
 
-import com.passkeep.data.User;
+import com.passkeep.models.data.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

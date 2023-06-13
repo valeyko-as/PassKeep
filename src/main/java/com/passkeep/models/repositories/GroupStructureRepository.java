@@ -1,6 +1,6 @@
-package com.passkeep.repositories;
+package com.passkeep.models.repositories;
 
-import com.passkeep.data.GroupStructure;
+import com.passkeep.models.data.GroupStructure;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

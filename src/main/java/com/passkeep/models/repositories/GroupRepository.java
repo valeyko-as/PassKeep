@@ -1,11 +1,9 @@
-package com.passkeep.repositories;
+package com.passkeep.models.repositories;
 
-import com.passkeep.data.Group;
+import com.passkeep.models.data.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface GroupRepository extends JpaRepository<Group, Integer> {
