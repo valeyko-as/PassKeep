@@ -19,7 +19,7 @@ public class AppController {
     @Autowired
     private UserService userService;
     @Autowired
-    private PasswordRepository passwordRepository;
+    private PasswordService passwordService;
     @Autowired
     private GroupService groupService;
     @Autowired
@@ -32,6 +32,8 @@ public class AppController {
     private GroupFolderService groupFolderService;
     @Autowired
     private GroupFolderDetailsService groupFolderDetailsService;
+    @Autowired
+    private GroupStructureService groupStructureService;
 
     @GetMapping
     public String mainPage(@AuthenticationPrincipal UserDetails userDetails, Model model) {
@@ -58,8 +60,11 @@ public class AppController {
     @GetMapping("/main/private/password/{id}")
     public String privatePasswordDetails(@PathVariable("id") Integer id, Model model) throws Exception {
         PrivateFolderDetails passwordDetails = privateFolderDetailsService.getById(id);
-        Password password = passwordDetails.getPassword();
-        String decryptedPass = PasswordEncryptor.decryptPassword(password.getPassword());
+        String decryptedPass = passwordService.getById(passwordDetails.getPassword().getId());
+
+        passwordService.addPassword("1234");
+        passwordService.updatePassword(1, "1234");
+
         model.addAttribute("passwordDetails", passwordDetails);
         model.addAttribute("password", decryptedPass);
         return "password-page";

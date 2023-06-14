@@ -22,11 +22,11 @@ public class GroupStructureService {
     }
 
     public List<GroupStructure> getStructureByGroup(Group group) {
-        return repository.findAllByGroupName(group.getName());
+        return repository.findAllByGroupId(group.getId());
     }
 
-    public List<GroupStructure> getStructureByRoleInGroup(Group group, GroupRole role) {
-        return repository.findByGroupRole(group.getName(), role.getName());
+    public List<GroupStructure> getStructureByRoleInGroup(GroupRole role) {
+        return repository.findByGroupRole(role.getId());
     }
 
     public void addUserToStructure(Group group, User user, GroupRole role) {
