@@ -6,5 +6,5 @@ public interface FolderDetailsService<T> {
     List<T> getByFolder(Integer folderId);
     T getByName(Integer folderId, String name);
     void add(T t);
-    void delete(Integer id);
+    void deleteById(Integer id);
 }

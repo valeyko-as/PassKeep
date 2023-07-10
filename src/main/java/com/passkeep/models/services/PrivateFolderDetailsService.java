@@ -1,5 +1,6 @@
 package com.passkeep.models.services;
 
+import com.passkeep.configs.PasswordEncryptor;
 import com.passkeep.models.data.PrivateFolderDetails;
 import com.passkeep.models.repositories.PrivateFolderDetailsRepository;
 import org.springframework.stereotype.Service;
@@ -35,8 +36,17 @@ public class PrivateFolderDetailsService implements FolderDetailsService<Private
         folderRepository.save(folderDetails);
     }
 
+    public void update(Integer id, PrivateFolderDetails newDetails, String newPassword) throws Exception {
+        PrivateFolderDetails details = folderRepository.findById(id).orElse(null);
+        if (details != null) {
+            details.setUrl(newDetails.getUrl());
+            details.setName(newDetails.getName());
+            details.getPassword().setPassword(PasswordEncryptor.encryptPassword(newPassword));
+            folderRepository.saveAndFlush(details);
+        }
+    }
     @Override
-    public void delete(Integer id) {
+    public void deleteById(Integer id) {
         folderRepository.deleteById(id);
     }
 }

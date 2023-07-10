@@ -22,15 +22,20 @@ public class PasswordService {
         return PasswordEncryptor.decryptPassword(password.getPassword());
     }
 
-    public void addPassword(String password) throws Exception {
+    public Password addPassword(String password) throws Exception {
         Password passwordToAdd = new Password();
         passwordToAdd.setPassword(PasswordEncryptor.encryptPassword(password));
         repository.saveAndFlush(passwordToAdd);
+        return passwordToAdd;
     }
 
     public void updatePassword(Integer passwordId, String newPassword) throws Exception {
         Password password = repository.findById(passwordId).orElseThrow();
         password.setPassword(PasswordEncryptor.encryptPassword(newPassword));
         repository.saveAndFlush(password);
+    }
+
+    public void deleteById(Integer id) {
+        repository.deleteById(id);
     }
 }

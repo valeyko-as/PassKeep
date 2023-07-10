@@ -4,10 +4,14 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
+class Key {
+    static final String ENCRYPT_KEY = "Secret";
+}
+
 public class PasswordEncryptor {
 
     private static final String ALGORITHM = "AES";
-    private static final String SECRET_KEY = "mySecretKey";
+    private static final String SECRET_KEY = Key.ENCRYPT_KEY;
 
     public static String encryptPassword(String password) throws Exception {
         SecretKeySpec secretKeySpec = new SecretKeySpec(SECRET_KEY.getBytes(), ALGORITHM);

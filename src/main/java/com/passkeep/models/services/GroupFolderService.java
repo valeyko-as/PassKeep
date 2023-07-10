@@ -1,5 +1,6 @@
 package com.passkeep.models.services;
 
+import com.passkeep.models.data.Group;
 import com.passkeep.models.data.GroupFolder;
 import com.passkeep.models.repositories.GroupFolderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,11 @@ public class GroupFolderService implements FolderService<GroupFolder> {
             repository.saveAndFlush(folder);
         }
         return folder;
+    }
+
+    public void add(GroupFolder newFolder, Group group) {
+        newFolder.setGroup(group);
+        repository.saveAndFlush(newFolder);
     }
 
     @Override

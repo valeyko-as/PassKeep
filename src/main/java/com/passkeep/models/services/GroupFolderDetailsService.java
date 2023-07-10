@@ -38,7 +38,7 @@ public class GroupFolderDetailsService implements FolderDetailsService<GroupFold
     }
 
     @Override
-    public void delete(Integer id) {
+    public void deleteById(Integer id) {
         repository.deleteById(id);
     }
 }

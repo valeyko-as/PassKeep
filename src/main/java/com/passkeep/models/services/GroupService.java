@@ -16,6 +16,10 @@ public class GroupService {
         this.repository = repository;
     }
 
+    public Group findById(Integer id) {
+        return repository.findById(id).orElseThrow();
+    }
+
     public Group findUserGroups(Integer id) {
         return repository.findUserGroups(id);
     }
